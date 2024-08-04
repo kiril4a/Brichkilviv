@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Ваш код обробки форми
         });
         form.addEventListener('submit', function(event) {
-            event.preventDefault();
+            // event.preventDefault();
 
             // Валидація форми
             const name = document.getElementById('quick-name').value;
