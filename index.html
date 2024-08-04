@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ваш сайт</title>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script src="js/script.js" defer></script>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -119,40 +123,128 @@
 
     <section id="contact">
         <h2>Опишіть Ваше авто і ми зателефонуємо Вам впродовж 10 хвилин</h2>
-        <form id="contactForm" action="js/script.js" method="post" enctype="multipart/form-data">
+        <form id="contactForm">
             <label for="car-brand">Марка автомобіля:</label>
             <select id="car-brand" name="car-brand" required>
-                <option value="">Оберіть марку</option>
-                <option value="toyota">Toyota</option>
-                <option value="bmw">BMW</option>
-                <option value="audi">Audi</option>
-                <option value="mercedes">Mercedes</option>
-                <!-- Добавьте другие марки по необходимости -->
+                <option value="">Виберіть марку</option>
+                <option value="Acura">Acura</option>
+                <option value="Alfa Romeo">Alfa Romeo</option>
+                <option value="Aston Martin">Aston Martin</option>
+                <option value="Atlas">Atlas</option>
+                <option value="Audi">Audi</option>
+                <option value="Bayliner">Bayliner</option>
+                <option value="Bentley">Bentley</option>
+                <option value="Benelli">Benelli</option>
+                <option value="BMW">BMW</option>
+                <option value="Bombag">Bombag</option>
+                <option value="BOVA">BOVA</option>
+                <option value="Broshuis">Broshuis</option>
+                <option value="Buick">Buick</option>
+                <option value="BYD">BYD</option>
+                <option value="Cadillac">Cadillac</option>
+                <option value="Caterpillar">Caterpillar</option>
+                <option value="CFMOTO">CFMOTO</option>
+                <option value="Chery">Chery</option>
+                <option value="Chevrolet">Chevrolet</option>
+                <option value="Chrysler">Chrysler</option>
+                <option value="Citroen">Citroen</option>
+                <option value="Dacia">Dacia</option>
+                <option value="DAF">DAF</option>
+                <option value="Dadi">Dadi</option>
+                <option value="Daihatsu">Daihatsu</option>
+                <option value="Dodge">Dodge</option>
+                <option value="Ducati">Ducati</option>
+                <option value="Fendt">Fendt</option>
+                <option value="Fiat">Fiat</option>
+                <option value="Ford">Ford</option>
+                <option value="GMC">GMC</option>
+                <option value="Great Wall">Great Wall</option>
+                <option value="Harley-Davidson">Harley-Davidson</option>
+                <option value="Honda">Honda</option>
+                <option value="Humbaur">Humbaur</option>
+                <option value="Husqvarna">Husqvarna</option>
+                <option value="Hyosung">Hyosung</option>
+                <option value="Hyundai">Hyundai</option>
+                <option value="Infiniti">Infiniti</option>
+                <option value="Isuzu">Isuzu</option>
+                <option value="Iveco">Iveco</option>
+                <option value="JAC">JAC</option>
+                <option value="Jaguar">Jaguar</option>
+                <option value="Jeep">Jeep</option>
+                <option value="John Deere">John Deere</option>
+                <option value="Kanuni">Kanuni</option>
+                <option value="Kawasaki">Kawasaki</option>
+                <option value="Kia">Kia</option>
+                <option value="Kogel">Kogel</option>
+                <option value="KrAZ">KrAZ</option>
+                <option value="Lada">Lada</option>
+                <option value="Lamborghini">Lamborghini</option>
+                <option value="Land Rover">Land Rover</option>
+                <option value="Lancia">Lancia</option>
+                <option value="Lexus">Lexus</option>
+                <option value="Lifan">Lifan</option>
+                <option value="Lincoln">Lincoln</option>
+                <option value="Maserati">Maserati</option>
+                <option value="Mazda">Mazda</option>
+                <option value="Mercedes-Benz">Mercedes-Benz</option>
+                <option value="Mitsubishi">Mitsubishi</option>
+                <option value="Moto Guzzi">Moto Guzzi</option>
+                <option value="Nissan">Nissan</option>
+                <option value="Opel">Opel</option>
+                <option value="Peugeot">Peugeot</option>
+                <option value="Piaggio">Piaggio</option>
+                <option value="Polaris">Polaris</option>
+                <option value="Pontiac">Pontiac</option>
+                <option value="Porsche">Porsche</option>
+                <option value="Renault">Renault</option>
+                <option value="Rover">Rover</option>
+                <option value="SsangYong">SsangYong</option>
+                <option value="Subaru">Subaru</option>
+                <option value="Suzuki">Suzuki</option>
+                <option value="Skoda">Skoda</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Tracker">Tracker</option>
+                <option value="Viper">Viper</option>
+                <option value="Volvo">Volvo</option>
+                <option value="Volkswagen">Volkswagen</option>
+                <option value="Yamaha">Yamaha</option>
+                <option value="ЗАЗ">ЗАЗ</option>
+                <option value="ГАЗ">ГАЗ</option>
+                <option value="Днепр">Днепр</option>
+                <option value="ДАФ">ДАФ</option>
+                <option value="Dongfeng">Dongfeng</option>
+                <option value="ЗИЛ">ЗИЛ</option>
+                <option value="КамАЗ">КамАЗ</option>
+                <option value="МАЗ">МАЗ</option>
+                <option value="ММЗ">ММЗ</option>
+                <option value="МТЗ">МТЗ</option>
+                <option value="ПАЗ">ПАЗ</option>
+                <option value="УАЗ">УАЗ</option>
+                <option value="Інше авто">Інше авто</option>
             </select>
-    
+        
             <label for="car-condition">Стан:</label>
             <select id="car-condition" name="car-condition" required>
-                <option value="">Оберіть стан</option>
-                <option value="new">Новий</option>
-                <option value="used">Вживаний</option>
-                <option value="damaged">Пошкоджений</option>
+                <option value="">Виберіть стан</option>
+                <option value="Автомобіль без пошкоджень">Автомобіль без пошкоджень</option>
+                <option value="Автомобіль має незначні пошкодження">Автомобіль має незначні пошкодження</option>
+                <option value="Автомобіль має великі пошкодження">Автомобіль має великі пошкодження</option>
+                <option value="Автомобіль не розмитнений">Автомобіль не розмитнений</option>
+                <option value="Автомобіль не на ходу">Автомобіль не на ходу</option>
             </select>
-    
+        
             <label for="car-model">Модель:</label>
             <input type="text" id="car-model" name="car-model" required style="width: 99%;">
-    
+        
             <label for="car-year">Рік:</label>
             <input type="number" id="car-year" name="car-year" required style="width: 99%;">
-    
+        
             <label for="name">Ім'я:</label>
             <input type="text" id="name" name="name" required style="width: 99%;">
-    
+        
             <label for="phone">Номер телефону:</label>
             <input type="tel" id="phone" name="phone" required style="width: 99%;">
-    
-            <label for="car-photo">Завантажити фото:</label>
-            <input type="file" id="car-photo" name="car-photo" accept="image/*" required style="width: 10%;">
-    
+        
             <button type="submit">Відправити</button>
         </form>
         <!-- Дополнительный отступ -->
@@ -165,6 +257,5 @@
         <p>&copy; 2024 Терміновий Автовикуп. Всі права захищені.</p>
     </footer>
     <div id="scroll-to-top" class="scroll-to-top">↑</div>
-    <script src="js/script.js"></script>
 </body>
 </html>

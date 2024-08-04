@@ -18,41 +18,65 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Налаштування форми
-    const form = document.getElementById('quickContactForm');
-    if (form) {
-        form.addEventListener('submit', function(event) {
+    // Налаштування форми для швидкого контакту
+    const quickContactForm = document.getElementById('quickContactForm');
+    if (quickContactForm) {
+        quickContactForm.addEventListener('submit', function(event) {
             event.preventDefault();
             
-            console.log('Форма була відправлена!');
-        
-            // Ваш код обробки форми
-        });
-        form.addEventListener('submit', function(event) {
-            // event.preventDefault();
+            console.log('Форма швидкого контакту була відправлена!');
 
             // Валидація форми
             const name = document.getElementById('quick-name').value;
             const phone = document.getElementById('quick-phone').value;
 
-            if (!name || !phone) {
-                alert('Будь ласка, заповніть всі поля.');
-                return;
-            }
+            // Параметри для шаблону
+            const templateParams = {
+                name: name,
+                phone: phone
+            };
 
             // Відправка форми через EmailJS
-            emailjs.send("service_ek16b4t","template_db5gmnx");
+            emailjs.send("service_ek16b4t", "template_db5gmnx", templateParams)
                 .then(function(response) {
-                    alert('Ваше повідомлення було відправлено!');
+                    alert('Ваше повідомлення з швидкого контакту було відправлено!');
                 }, function(error) {
+                    console.error('Сталася помилка при відправленні повідомлення:', error);
                     alert('Сталася помилка при відправленні повідомлення.');
-                    console.error('Error:', error);
                 });
             
-            form.reset();
+            quickContactForm.reset();
         });
     }
-    
+
+    // Налаштування основної форми
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(contactForm);
+
+            const contactTemplateParams = {
+                'car-brand': formData.get('car-brand'),
+                'car-condition': formData.get('car-condition'),
+                'car-model': formData.get('car-model'),
+                'car-year': formData.get('car-year'),
+                'name': formData.get('name'),
+                'phone': formData.get('phone'),
+            };
+
+            emailjs.send("service_ek16b4t", "template_5mrva3h", contactTemplateParams)
+                .then(function(response) {
+                    alert('Ваше повідомлення з основної форми було відправлено!');
+                }, function(error) {
+                    console.error('Сталася помилка при відправленні повідомлення:', error);
+                    alert('Сталася помилка при відправленні повідомлення.');
+                });
+
+            contactForm.reset();
+        });
+    }
 
     // Плавний скролл до форми
     const scrollLinks = document.querySelectorAll('.scroll-link');
