@@ -19,27 +19,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Налаштування форми
-    const form = document.getElementById('contactForm');
+    const form = document.getElementById('quickContactForm');
     if (form) {
         form.addEventListener('submit', function(event) {
             event.preventDefault();
 
-            // Простейшая валидация формы
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
+            // Валидація форми
+            const name = document.getElementById('quick-name').value;
+            const phone = document.getElementById('quick-phone').value;
 
-            if (!name || !email || !message) {
+            if (!name || !phone) {
                 alert('Будь ласка, заповніть всі поля.');
                 return;
             }
 
             // Відправка форми через EmailJS
-            emailjs.sendForm('service_ek16b4t', 'template_db5gmnx', this)
+            emailjs.sendForm('service_ek16b4t', 'template_db5gmnx', form)
                 .then(function(response) {
                     alert('Ваше повідомлення було відправлено!');
                 }, function(error) {
                     alert('Сталася помилка при відправленні повідомлення.');
+                    console.error('Error:', error);
                 });
             
             form.reset();
