@@ -23,6 +23,13 @@ document.addEventListener('DOMContentLoaded', function() {
     if (form) {
         form.addEventListener('submit', function(event) {
             event.preventDefault();
+            
+            console.log('Форма була відправлена!');
+        
+            // Ваш код обробки форми
+        });
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
 
             // Валидація форми
             const name = document.getElementById('quick-name').value;
@@ -34,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             // Відправка форми через EmailJS
-            emailjs.send("service_ek16b4t","template_db5gmnx",form);
+            emailjs.send("service_ek16b4t","template_db5gmnx");
                 .then(function(response) {
                     alert('Ваше повідомлення було відправлено!');
                 }, function(error) {
@@ -45,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
             form.reset();
         });
     }
+    
 
     // Плавний скролл до форми
     const scrollLinks = document.querySelectorAll('.scroll-link');
