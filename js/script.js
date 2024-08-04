@@ -1,3 +1,8 @@
+// Ініціалізація EmailJS
+(function() {
+    emailjs.init("Be_Bc8EG1H733QJYX"); // Ваш EmailJS user ID
+})();
+
 document.addEventListener('DOMContentLoaded', function() {
     // Перевіряємо, чи є фрагмент у URL
     const fragment = window.location.hash;
@@ -13,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    // Налаштування форми
     const form = document.getElementById('contactForm');
     if (form) {
         form.addEventListener('submit', function(event) {
@@ -24,13 +30,18 @@ document.addEventListener('DOMContentLoaded', function() {
             const message = document.getElementById('message').value;
 
             if (!name || !email || !message) {
-                alert('Пожалуйста, заполните все поля.');
+                alert('Будь ласка, заповніть всі поля.');
                 return;
             }
 
-            // Дополнительно можно сделать AJAX запрос для отправки данных на сервер
-
-            alert('Спасибо за ваше сообщение!');
+            // Відправка форми через EmailJS
+            emailjs.sendForm('service_ek16b4t', 'template_db5gmnx', this)
+                .then(function(response) {
+                    alert('Ваше повідомлення було відправлено!');
+                }, function(error) {
+                    alert('Сталася помилка при відправленні повідомлення.');
+                });
+            
             form.reset();
         });
     }
@@ -49,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Сховати/показати хедер при скролінгу
     const header = document.querySelector('header');
     let lastScrollTop = 0;
 
@@ -66,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
     });
 
+    // Кнопка "Повернутися на верх"
     const scrollToTopButton = document.querySelector('#scroll-to-top');
 
     if (scrollToTopButton) {
