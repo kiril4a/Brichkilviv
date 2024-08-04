@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             // Відправка форми через EmailJS
-            emailjs.sendForm('service_ek16b4t', 'template_db5gmnx', form)
+            emailjs.send("service_ek16b4t","template_db5gmnx",form);
                 .then(function(response) {
                     alert('Ваше повідомлення було відправлено!');
                 }, function(error) {
