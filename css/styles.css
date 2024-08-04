@@ -1,0 +1,678 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-image: url('../images/header-background.jpeg'); /* Замініть на шлях до вашого зображення */
+    background-size: cover; /* Адаптує зображення до розмірів контейнера */
+    background-position: center; /* Центрує зображення */
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+header.hidden {
+    transform: translateY(-100%);
+}
+
+.header__logo img {
+    padding-left: 80px;
+    height: 80px;
+}
+
+.header__nav {
+    position: relative;
+}
+
+.header__nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.header__nav li {
+    margin-left: 40px;
+    position: relative;
+}
+
+.header__nav > ul > li > a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 22px;
+    position: relative;
+    display: inline-block;
+    padding: 5px 0;
+}
+
+.header__nav > ul > li > a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    right: 0;
+    background: #fff;
+    transition: width 0.4s ease;
+    -webkit-transition: width 0.4s ease;
+}
+
+.header__nav > ul > li > a:hover::after {
+    width: 100%;
+    left: 0;
+    border-radius: 2px;
+    background-color: #fff; /* Колір смужки */
+}
+
+/* Dropdown меню */
+.dropdown-content {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%; /* Відносно батьківського елемента */
+    left: 50%;
+    transform: translateX(-50%); /* Центрування по горизонталі */
+    background-color: #474747;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, margin-top 0.5s ease-out;
+    border-radius: 8px; /* Закруглення кутів */
+    margin-top: 20px; /* Відступ зверху */
+    border: none; /* Прибрати бордюри */
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 16px; /* Розмір шрифту в dropdown меню */
+    font-weight: bold; /* Жирний шрифт */
+    border: none; /* Прибрати бордюри */
+    border-bottom: none; /* Прибрати нижню бордюру */
+    box-shadow: none; /* Прибрати тіні */
+}
+
+.dropdown-content a:hover {
+    background-color: #575757;
+    border: none; /* Прибрати бордюри */
+    border-bottom: none; /* Прибрати нижню бордюру */
+    box-shadow: none; /* Прибрати тіні */
+}
+
+/* Плавне появлення при наведенні */
+.header__nav li:hover .dropdown-content {
+    max-height: 300px; /* Установіть це значення в залежності від висоти вашого меню */
+    margin-top: 20px; /* Відступ зверху під час появи */
+}
+
+
+
+main {
+    padding: 20px;
+    margin-top: 80px; /* Відступ для уникнення перекриття з фіксованим хедером */
+}
+
+section {
+    padding: 80px 20px 20px;
+    text-align: center;
+}
+
+#home {
+    background-color: #f4f4f4;
+    padding-top: 120px;
+}
+
+.content-main {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.content-main .left-column {
+    width: 66%;
+}
+.content-main .left-column h1{
+    font-size: 30px;
+    text-align: left;
+    padding-bottom: 20px;
+}
+.content-main .left-column p {
+    font-size: 25px;
+    text-align: left;
+    padding-bottom: 20px;
+}
+
+.content-main .right-column {
+    width: 33%;
+    padding-left: 20px;
+}
+
+@media (max-width: 768px) {
+    .content-main {
+        flex-direction: column;
+    }
+
+    .content-main .left-column, .content-main .right-column {
+        width: 100%;
+    }
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.left-column, .right-column {
+    width: 48%;
+}
+
+.left-column a.scroll-link {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.left-column a.scroll-link:hover {
+    background-color: #555;
+}
+
+/* Стилі для форми */
+form {
+    max-width: 100%;
+    text-align: left;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    margin-bottom: 80px; /* Додатковий відступ знизу */
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+form input, form select {
+    width: 95%; /* Зменшено ширину до 95% */
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Roboto', sans-serif;
+}
+
+form input[type="file"] {
+    padding: 0;
+}
+
+form button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+.contact-form-spacer {
+    height: 80px; /* Розмір відступу, що повинен бути достатнім, щоб футер не перекривав форму */
+}
+
+footer {
+    background-image: url('../images/header-background.jpeg'); /* Замініть на шлях до вашого зображення */
+    background-size: cover; /* Адаптує зображення до розмірів контейнера */
+    background-position: center; /* Центрує зображення */
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Стили для секції "Про нас" */
+.about-us {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px;
+    padding-left: 250px;
+    padding-right: 250px;
+}
+
+.about-us__text {
+    width: 50%;
+    padding-right: 20px;
+    text-align: left !important;
+}
+
+.about-us__image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.evaluation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px;
+}
+
+.evaluation__text {
+    width: 60%; /* Текст займає 50% ширини контейнера */
+    padding-right: 20px;
+    text-align: left;
+}
+
+.evaluation__image {
+    width: 40%; /* Зображення займає 50% ширини контейнера */
+}
+
+.evaluation__image img {
+    width: 80%; /* Зображення займає всю ширину контейнера */
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Стили для сторінки "Контакти" */
+.contact {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.left-column {
+    width: 33%;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+.right-column {
+    width: 66%;
+}
+
+.left-column h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.left-column p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.contact-item {
+    display: block;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.contact-item:hover {
+    color: rgb(0, 70, 128);
+    transform: scale(1.1);
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center; /* Центрує іконки по горизонталі */
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.social-icon {
+    display: inline-flex; /* Використовуємо flex для центрування контенту */
+    align-items: center; /* Центрує іконку по вертикалі */
+    justify-content: center; /* Центрує іконку по горизонталі */
+    width: 40px;
+    height: 40px;
+    background-color: #33333300;
+    mask-size: contain; /* Масштабує маску так, щоб вона повністю вмістилася у контейнер */
+    mask-repeat: no-repeat; /* Змінює повтор маски */
+    mask-position: center; /* Центрує маску */
+    background-size: cover; /* Масштабує фонове зображення так, щоб воно повністю вмістилося у контейнер */
+    background-position: center; /* Центрує фонове зображення */
+    border-radius: 30%;
+    transition: transform 0.3s ease;
+    overflow: hidden; /* Обрізає вміст, що виходить за межі контейнера */
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+}
+
+.form-container {
+    margin-top: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+}
+
+form label {
+    margin-bottom: 5px;
+}
+
+form input {
+    padding: 10px;
+    margin-right: 200px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 95%;
+}
+
+form button {
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+.map-container {
+    height: 400px;
+    padding-left: 20px;
+    border-radius: 8px;
+    overflow: hidden; /* Забезпечує правильне заокруглення iframe */
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 8px; /* Заокруглені краї */
+}
+
+/* Стили для футера */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Стили для кнопки перенаправлення на форму */
+.go-to-form-button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.go-to-form-button:hover {
+    background-color: #555;
+}
+
+.section-divider {
+    border: none; /* Вимкнути стандартні межі */
+    border-top: 2px solid #ccc; /* Стиль лінії */
+    margin: 20px 0; /* Відступи зверху і знизу */
+    width: 100%; /* Ширина на всю доступну ширину */
+}
+
+/* Стили для секції "Переваги" */
+.page__advantages {
+    padding: 60px 20px;
+    background-color: #fff;
+}
+
+.advantages__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.advantages__title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.advantages__content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.box-advantages {
+    background: #f4f4f4;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 30%;
+    box-sizing: border-box;
+}
+
+.box-advantages__titlewrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.box-advantages__number {
+    background: #333;
+    color: #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    margin-right: 10px;
+}
+
+.box-advantages__title {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.box-advantages__text {
+    font-size: 1em;
+    color: #555;
+}
+
+#priorities {
+    padding: 60px 20px;
+    background-color: #f9f9f9; /* Фоновий колір секції */
+}
+
+.priority-container {
+    display: flex;
+    justify-content: space-between; /* Вирівнює стовпці по горизонталі */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.priority-column {
+    flex: 1; /* Дозволяє стовпцям займати рівну ширину */
+    padding: 20px;
+    text-align: center;
+    background-color: #fff; /* Фоновий колір для кожного стовпця */
+    border-radius: 8px; /* Закруглення кутів */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Тінь для стовпців */
+    margin: 0 10px; /* Відступи з боків */
+    position: relative;
+}
+
+.priority-column:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -1px;
+    height: 100%;
+    width: 1px; /* Ширина вертикальної лінії */
+    background-color: #ccc; /* Колір вертикальної лінії */
+}
+
+.priority-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin: 0 0 10px;
+}
+
+p {
+    font-size: 1em;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .content {
+        flex-direction: column;
+    }
+
+    .left-column, .right-column {
+        width: 100%;
+    }
+
+    #priorities {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .priority-container {
+        flex-direction: column;
+    }
+
+    .priority-column {
+        margin: 10px 0;
+    }
+
+    .priority-column:not(:last-child)::after {
+        display: none; /* Сховати вертикальні лінії на мобільних пристроях */
+    }
+
+    .separator {
+        display: none;
+    }
+
+    .box-advantages {
+        width: 100%;
+    }
+}
+
+.header__contacts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 20px;
+    transition: all 0.3s ease;
+}
+
+.header__contacts .contact-number {
+    color: #fff;
+    text-decoration: none;
+    font-size: 19px;
+    margin-top: 5px;
+    padding-right: 80px;
+    transition: color 0.3s ease, transform 0.3s ease; /* Додаємо плавний перехід для кольору та трансформації */
+}
+
+.header__contacts .contact-number:hover {
+    color: rgb(0, 70, 128);
+    transform: scale(1.1);
+}
+
+/* Стилі для кнопки підйому до верху сторінки */
+.scroll-to-top {
+    position: fixed;
+    bottom: 100px; /* Відстань від нижнього краю */
+    right: 20px; /* Відстань від правого краю */
+    width: 50px;
+    height: 50px;
+    background-color: #333; /* Колір фону кнопки */
+    color: #fff; /* Колір тексту */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Кругла форма */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тінь для кнопки */
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, opacity 0.5s, visibility 0.5s; /* Анімації для фону, масштабу, прозорості та видимості */
+    opacity: 0; /* Початкова невидимість */
+    visibility: hidden; /* Приховане вміст */
+    z-index: 1000; /* Щоб кнопка була поверх інших елементів */
+}
+
+.scroll-to-top.visible {
+    opacity: 1; /* Видимість */
+    visibility: visible; /* Видимість вмісту */
+}
+
+.scroll-to-top.hidden {
+    opacity: 0; /* Невидимість */
+    visibility: hidden; /* Приховане вміст */
+}
+
+.scroll-to-top:hover {
+    background-color: #555; /* Колір фону при наведенні */
+    transform: scale(1.1); /* Легке збільшення при наведенні */
+}
+
+.scroll-to-top:active {
+    background-color: #444; /* Колір фону при натисканні */
+}

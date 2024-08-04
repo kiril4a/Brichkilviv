@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ваш сайт</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header__logo">
+            <img src="images/logo.png" alt="Логотип">
+        </div>
+        <nav class="header__nav">
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="about.html">Про нас</a></li>
+                <li>
+                    <a href="#">Послуги</a>
+                    <div class="dropdown-content">
+                        <a href="autovykupl.html">Автовикуп</a>
+                        <a href="helpbuy.html">Допомога в покупці авто</a>
+                        <a href="exchange.html">Обмін авто</a>
+                        <a href="evaluation.html">Оцінка авто</a>
+                    </div>
+                </li>
+                <li><a href="contacts.html">Контакти</a></li>
+            </ul>
+        </nav>
+        <div class="header__contacts">
+            <a href="tel:+1234567890" class="contact-number">+1234567890</a>
+            <a href="tel:+0987654321" class="contact-number">+0987654321</a>
+        </div>
+    </header>
+    
+    <section id="home">
+        <div class="content-main">
+            <div class="left-column">
+                <h1>Терміновий Автовикуп Львів та Західна Україна Дорого, Швидко, Надійно</h1>
+                <hr>
+                <p>Ми готові запропонувати Вам найкращу ціну за Ваш автомобіль. Залиште заявку і ми сконтактуємо з Вами найближчим часом.</p>
+                <hr>
+                <a href="#contactForm" class="scroll-link">Оцінка автомобіля</a>
+            </div>
+            <div class="right-column">
+                <h2>Безкоштовна консультація</h2>
+                <p>Заповніть дані і ми зателефонуємо Вам найближчим часом</p>
+                <form id="quickContactForm" action="#" method="post">
+                    <label for="quick-name">Ім'я:</label>
+                    <input type="text" id="quick-name" name="name" required>
+                    
+                    <label for="quick-phone">Номер телефону:</label>
+                    <input type="tel" id="quick-phone" name="phone" required>
+                    
+                    <button type="submit">Відправити</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="priorities">
+        <div class="priority-container">
+            <div class="priority-column">
+                <img src="images/integrity-icon.png" alt="Партнерська доброчесність" class="priority-icon">
+                <h2>Партнерська доброчесність</h2>
+                <p>Ми гарантуємо нашим партнерам чесність і надійність.</p>
+            </div>
+            <div class="priority-column">
+                <img src="images/speed-icon.png" alt="Швидкість реагування" class="priority-icon">
+                <h2>Швидкість реагування</h2>
+                <p>Забезпечуємо оперативний, якісний та ефективний сервіс впродовж усього процесу купівлі автомобіля.</p>
+            </div>
+            <div class="priority-column">
+                <img src="images/individual-icon.png" alt="Розгляд кожного запиту" class="priority-icon">
+                <h2>Розгляд кожного запиту та пропозиції</h2>
+                <p>Індивідуальний, ретельно продуманий підхід до кожного клієнта.</p>
+            </div>
+            <div class="priority-column">
+                <img src="images/evaluation-icon.png" alt="Хороша оцінка Вашого авто" class="priority-icon">
+                <h2>Хороша оцінка Вашого авто</h2>
+                <p>Гарантія оцінки якості Вашого авто за найвищою і найвигіднішою ціною.</p>
+            </div>
+        </div>
+    </section>
+    
+    
+
+    <section class="page__advantages advantages">
+        <div class="advantages__container">
+            <div class="advantages__title title">Процес викупу авто</div>
+            <div class="advantages__content">
+                <div class="advantages__box box-advantages">
+                    <div class="box-advantages__titlewrapper">
+                        <div class="box-advantages__number">1</div>
+                        <h3 class="box-advantages__title">Заявка</h3>
+                    </div>
+                    <p class="box-advantages__text">Залиште заявку на сайті з деталями опису Вашого автомобіля або
+                        зателефонуйте</p>
+                </div>
+                <div class="advantages__box box-advantages">
+                    <div class="box-advantages__titlewrapper">
+                        <div class="box-advantages__number">2</div>
+                        <h3 class="box-advantages__title">Оцінка</h3>
+                    </div>
+                    <p class="box-advantages__text">Наші фахівці оцінюють Ваше авто та пропонують ціну</p>
+                </div>
+                <div class="advantages__box box-advantages">
+                    <div class="box-advantages__titlewrapper">
+                        <div class="box-advantages__number">3</div>
+                        <h3 class="box-advantages__title">Оплата</h3>
+                    </div>
+                    <p class="box-advantages__text">Прийміть пропозицію, оформимо документи та видаємо гроші <br> Все
+                        просто та швидко</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="contact">
+        <h2>Опишіть Ваше авто і ми зателефонуємо Вам впродовж 10 хвилин</h2>
+        <form id="contactForm" action="https://formspree.io/f/service_ek16b4t" method="post" enctype="multipart/form-data">
+            <label for="car-brand">Марка автомобіля:</label>
+            <select id="car-brand" name="car-brand" required>
+                <option value="">Оберіть марку</option>
+                <option value="toyota">Toyota</option>
+                <option value="bmw">BMW</option>
+                <option value="audi">Audi</option>
+                <option value="mercedes">Mercedes</option>
+                <!-- Добавьте другие марки по необходимости -->
+            </select>
+    
+            <label for="car-condition">Стан:</label>
+            <select id="car-condition" name="car-condition" required>
+                <option value="">Оберіть стан</option>
+                <option value="new">Новий</option>
+                <option value="used">Вживаний</option>
+                <option value="damaged">Пошкоджений</option>
+            </select>
+    
+            <label for="car-model">Модель:</label>
+            <input type="text" id="car-model" name="car-model" required style="width: 99%;">
+    
+            <label for="car-year">Рік:</label>
+            <input type="number" id="car-year" name="car-year" required style="width: 99%;">
+    
+            <label for="name">Ім'я:</label>
+            <input type="text" id="name" name="name" required style="width: 99%;">
+    
+            <label for="phone">Номер телефону:</label>
+            <input type="tel" id="phone" name="phone" required style="width: 99%;">
+    
+            <label for="car-photo">Завантажити фото:</label>
+            <input type="file" id="car-photo" name="car-photo" accept="image/*" required style="width: 10%;">
+    
+            <button type="submit">Відправити</button>
+        </form>
+        <!-- Дополнительный отступ -->
+        <div class="contact-form-spacer"></div>
+    </section>
+
+    
+    
+    <footer>
+        <p>&copy; 2024 Терміновий Автовикуп. Всі права захищені.</p>
+    </footer>
+    <div id="scroll-to-top" class="scroll-to-top">↑</div>
+    <script src="js/script.js"></script>
+</body>
+</html>
