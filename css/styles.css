@@ -2,7 +2,7 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: #717476;
 }
 
 header {
@@ -10,10 +10,10 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px;
-    background-image: url('../images/header-background.jpeg'); /* Замініть на шлях до вашого зображення */
-    background-size: cover; /* Адаптує зображення до розмірів контейнера */
-    background-position: center; /* Центрує зображення */
-    color: #fff;
+    /*background-image: url('../images/header-background.jpeg'); /* Замініть на шлях до вашого зображення */
+    /*background-size: cover; /* Адаптує зображення до розмірів контейнера */
+    /*background-position: center; /* Центрує зображення */
+    background-color: #222922;
     position: fixed;
     top: 0;
     left: 0;
@@ -93,7 +93,7 @@ header.hidden {
     top: 100%; /* Відносно батьківського елемента */
     left: 50%;
     transform: translateX(-50%); /* Центрування по горизонталі */
-    background-color: #474747;
+    background-color: #191f19;
     min-width: 200px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
@@ -143,7 +143,7 @@ section {
 }
 
 #home {
-    background-color: #f4f4f4;
+    background-color: #717476;
     padding-top: 120px;
 }
 
@@ -197,7 +197,7 @@ section {
 .left-column a.scroll-link {
     display: inline-block;
     margin-top: 20px;
-    background-color: #333;
+    background-color: #222922;
     color: #fff;
     padding: 10px 20px;
     border-radius: 4px;
@@ -206,7 +206,7 @@ section {
 }
 
 .left-column a.scroll-link:hover {
-    background-color: #555;
+    background-color: #222922;
 }
 
 /* Стилі для форми */
@@ -239,7 +239,7 @@ form input[type="file"] {
 }
 
 form button {
-    background-color: #333;
+    background-color: #222922;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -249,7 +249,7 @@ form button {
 }
 
 form button:hover {
-    background-color: #555;
+    background-color: #222922;
 }
 
 .contact-form-spacer {
@@ -257,10 +257,10 @@ form button:hover {
 }
 
 footer {
-    background-image: url('../images/header-background.jpeg'); /* Замініть на шлях до вашого зображення */
-    background-size: cover; /* Адаптує зображення до розмірів контейнера */
-    background-position: center; /* Центрує зображення */
-    color: #fff;
+    /*background-image: url('../images/header-background.jpeg'); /* Замініть на шлях до вашого зображення */
+    /*background-size: cover; /* Адаптує зображення до розмірів контейнера */
+    /*background-position: center; /* Центрує зображення */
+    background-color: #222922;
     text-align: center;
     padding: 10px 20px;
     position: fixed;
@@ -413,7 +413,7 @@ form input {
 
 form button {
     padding: 10px;
-    background-color: #333;
+    background-color: #222922;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -422,7 +422,7 @@ form button {
 }
 
 form button:hover {
-    background-color: #555;
+    background-color: #222922;
 }
 
 .map-container {
@@ -441,7 +441,7 @@ form button:hover {
 
 /* Стили для футера */
 footer {
-    background-color: #333;
+    background-color: #222922;
     color: #fff;
     text-align: center;
     padding: 10px 20px;
@@ -452,7 +452,7 @@ footer {
 
 /* Стили для кнопки перенаправлення на форму */
 .go-to-form-button {
-    background-color: #333;
+    background-color: #222922;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -465,7 +465,7 @@ footer {
 }
 
 .go-to-form-button:hover {
-    background-color: #555;
+    background-color: #222922;
 }
 
 .section-divider {
@@ -478,7 +478,7 @@ footer {
 /* Стили для секції "Переваги" */
 .page__advantages {
     padding: 60px 20px;
-    background-color: #fff;
+    background-color: #717476;
 }
 
 .advantages__container {
@@ -516,7 +516,7 @@ footer {
 }
 
 .box-advantages__number {
-    background: #333;
+    background: #222922;
     color: #fff;
     border-radius: 50%;
     width: 40px;
@@ -540,7 +540,7 @@ footer {
 
 #priorities {
     padding: 60px 20px;
-    background-color: #f9f9f9; /* Фоновий колір секції */
+    background-color: #717476; /* Фоновий колір секції */
 }
 
 .priority-container {
@@ -565,10 +565,11 @@ footer {
     content: "";
     position: absolute;
     top: 0;
-    right: -1px;
+    right: calc(-25px / 2); /* Використовуємо calc для точного позиціонування */
     height: 100%;
-    width: 1px; /* Ширина вертикальної лінії */
+    width: 4px; /* Ширина вертикальної лінії */
     background-color: #ccc; /* Колір вертикальної лінії */
+    border-radius: 2px;
 }
 
 .priority-icon {
@@ -651,7 +652,7 @@ p {
     right: 20px; /* Відстань від правого краю */
     width: 50px;
     height: 50px;
-    background-color: #333; /* Колір фону кнопки */
+    background-color: #222922; /* Колір фону кнопки */
     color: #fff; /* Колір тексту */
     display: flex;
     align-items: center;
@@ -678,10 +679,10 @@ p {
 }
 
 .scroll-to-top:hover {
-    background-color: #555; /* Колір фону при наведенні */
+    background-color: #3d493d; /* Колір фону при наведенні */
     transform: scale(1.1); /* Легке збільшення при наведенні */
 }
 
 .scroll-to-top:active {
-    background-color: #444; /* Колір фону при натисканні */
+    background-color: #3d493d; /* Колір фону при натисканні */
 }
