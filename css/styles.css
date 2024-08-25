@@ -26,10 +26,19 @@ header.hidden {
     transform: translateY(-100%);
 }
 
-.header__logo img {
+.header__logo {
     padding-left: 80px;
-    height: 80px;
+    height: 90px;
+    border-radius: 10px;
+    overflow: hidden;
 }
+
+.header__logo img {
+    height: 100%;
+    width: auto;
+    border-radius: 10px;
+}
+
 
 .header__nav {
     position: relative;
