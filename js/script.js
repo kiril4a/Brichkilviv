@@ -4,6 +4,17 @@
 })();
 
 document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMobile = document.querySelector('.header__nav_mobile');
+
+    menuToggle.addEventListener('click', function() {
+        // Перемикаємо клас show для мобільного меню
+        navMobile.classList.toggle('show');
+        // Перемикаємо клас active для кнопки меню
+        menuToggle.classList.toggle('active');
+    });
+    
+    
     // Перевіряємо, чи є фрагмент у URL
     const fragment = window.location.hash;
     

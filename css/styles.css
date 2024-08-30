@@ -1,5 +1,6 @@
 html, body {
     font-family: 'Roboto', sans-serif;
+    max-width: 100vw;
     margin: 0;
     padding: 0;
     background-color: #717476;
@@ -184,17 +185,6 @@ section {
     width: 33%;
     padding-left: 20px;
     box-sizing: border-box; /* Включає padding у ширину колонки */
-}
-
-
-@media (max-width: 768px) {
-    .content-main {
-        flex-direction: column;
-    }
-
-    .content-main .left-column, .content-main .right-column {
-        width: 100%;
-    }
 }
 
 .content {
@@ -642,4 +632,246 @@ footer {
 
 .scroll-to-top:active {
     background-color: #3d493d; /* Колір фону при натисканні */
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.header__nav_mobile {
+    display: none;
+}
+.about-us .left-column{
+    width: 25%;
+}
+/* Стили для мобільних версій */
+@media (max-width: 1250px) {
+    html, body {
+        font-size: 16px; /* Зменшення базового розміру шрифту для мобільних пристроїв */
+        padding: 0;
+        margin: 0;
+    }
+    
+
+    header {
+        flex-direction: column;
+        padding: 10px;
+        position: relative;
+    }
+
+    .header__logo {
+        /*flex: 1;
+        padding-left: 0;*/
+        width: 100%;
+        max-height: 100%;
+    }
+
+    .header__contacts {
+        display: none; /* Ховати контакти на мобільних пристроях */
+    }
+
+    /* Стилі для кнопки меню (гамбургер) */
+    .menu-toggle {
+        background: none;
+        border: none;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 30px;
+        height: 20px;
+        cursor: pointer;
+        position: absolute;
+        top: 10px; /* Відступ зверху */
+        right: 20px; /* Відступ від правого краю */
+        z-index: 1001; /* Щоб кнопка була поверх інших елементів */
+    }
+
+    .menu-toggle-bar {
+        background-color: #fff; /* Колір полосок */
+        width: 30px;
+        height: 3px;
+        border-radius: 3px;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+
+    /* Переключення меню при натисканні */
+    .menu-toggle.active .menu-toggle-bar:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.active .menu-toggle-bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active .menu-toggle-bar:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Стилі для навігаційного меню */
+    .header__nav {
+        display: none;
+    }
+    /* Стилі для мобільного меню */
+    .header__nav_mobile {
+        display: none; /* Сховати меню за замовчуванням */
+        position: fixed; /* Закріпити меню */
+        top: 0; /* Вирівнювання зверху */
+        right: -100%; /* Виходить за межі правого краю екрану */
+        background-color: #3D4633; /* Колір фону меню */
+        width: 30%; /* Ширина меню */
+        height: auto; /* Автоматична висота залежно від вмісту */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тінь для меню */
+        overflow-y: auto; /* Прокрутка по вертикалі */
+        transition: right 0.3s ease, opacity 0.3s ease, background-color 0.3s ease, transform 0.3s ease, visibility 0.5s; /* Плавні переходи */
+        opacity: 0; /* Невидиме меню */
+        z-index: 1000; /* Щоб меню було поверх інших елементів */
+        display: flex; /* Використовуємо flexbox для розташування елементів */
+        flex-direction: column; /* Розташування елементів вертикально */
+        align-items: center; /* Вирівнювання по центру */
+        padding-top: 60px; /* Відступ зверху, щоб не перекривати контент */
+        border-top-left-radius: 10px; /* Заокруглені верхні ліві кути */
+        border-bottom-left-radius: 10px; /* Заокруглені нижні ліві кути */
+    }
+
+    /* Показувати меню при активному класі */
+    .header__nav_mobile.show {
+        right: 0; /* Виставити меню на видиму позицію */
+        opacity: 1; /* Робимо меню видимим */
+    }
+
+    /* Стилі для посилань у мобільному меню */
+    .header__nav_mobile a {
+        display: block; /* Блочний формат для посилань */
+        padding: 15px 20px; /* Внутрішні відступи */
+        text-decoration: none; /* Видалення підкреслення */
+        color: white; /* Колір тексту */
+        text-align: center; /* Вирівнювання тексту по центру */
+        width: 100%; /* Ширина на всю ширину меню */
+        border-bottom: 3px solid #717171; /* Горизонтальна лінія після кожного посилання */
+        transition: color 0.3s ease; /* Плавний перехід кольору тексту */
+        font-weight: 600;
+    }
+
+    /* Зміна кольору тексту при натисканні */
+    .header__nav_mobile a:active {
+        color: #ccc; /* Колір тексту при натисканні */
+    }
+
+    /* При наведенні */
+    .header__nav_mobile a:hover {
+        color: #717476; /* Колір тексту при наведенні */
+    }
+
+
+    main {
+        padding: 10px; /* Зменшити відступи */
+        margin-top: 60px; /* Відступ для уникнення перекриття з фіксованим хедером */
+    }
+
+    .content-main {
+        flex-direction: column; /* Вертикальне розташування колонок */
+        padding-top: 10px; /* Зменшити відступи */
+    }
+
+    .content-main .left-column {
+        width: 100%; /* Колонки займатимуть всю ширину */
+        padding: 5%; /* Зменшити відступи */
+    }
+    .content-main .right-column{
+        display: none;
+    }
+
+    .content-main .left-column h1 {
+        font-size: 24px; /* Зменшити розмір заголовка */
+    }
+
+    .content-main .left-column p {
+        font-size: 18px; /* Зменшити розмір тексту */
+    }
+
+    .contact {
+        flex-direction: column; /* Вертикальне розташування колонок */
+        padding: 10px; /* Зменшити відступи */
+    }
+
+    .left-column, .right-column {
+        width: 100%; /* Колонки займатимуть всю ширину */
+        padding: 0; /* Зменшити відступи */
+    }
+
+    .map-container {
+        height: 300px; /* Зменшити висоту карти */
+        padding-left: 0; /* Вимкнути відступи */
+    }
+
+    .form-container {
+        margin-top: 10px; /* Зменшити відступи */
+    }
+
+    .go-to-form-button {
+        padding: 8px 16px; /* Зменшити відступи */
+        font-size: 14px; /* Зменшити розмір шрифту */
+    }
+
+    .social-icons {
+        gap: 5%; /* Зменшити відстань між іконками */
+    }
+
+    .social-icon {
+        width: 30px; /* Зменшити розмір іконок */
+        height: 30px;
+    }
+
+    .scroll-to-top {
+        width: 40px; /* Зменшити розмір кнопки */
+        height: 40px;
+        font-size: 18px; /* Зменшити розмір шрифту */
+        bottom: 20px; /* Зменшити відстань від нижнього краю */
+        right: 10px; /* Зменшити відстань від правого краю */
+    }
+
+    .page__advantages {
+        padding: 30px 10px; /* Зменшити відступи */
+    }
+
+    .box-advantages {
+        width: 100%; /* Ширина кожної коробки на всю ширину */
+        box-sizing: border-box; /* Включити padding у ширину */
+    }
+
+    .priority-container {
+        flex-direction: column; /* Вертикальне розташування стовпців */
+    }
+
+    .priority-column {
+        width: 100%; /* Стовпці займатимуть всю ширину */
+        margin: 10px 0; /* Зменшити відступи між стовпцями */
+    }
+    .priority-column:not(:last-child)::after {
+        display: none;
+      }
+    form {
+        max-width: 100%;
+    }
+    .advantages__container {
+        width:95%;
+        text-align: center;
+    }
+    .about-us__image img {
+        display: none;
+    }
+    .container {
+        max-width: 100%;
+    }
+    .about-us .left-column{
+        width: 100%;
+    }
+
+    .about {
+        background-image: url('\images\about-us.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
 }
