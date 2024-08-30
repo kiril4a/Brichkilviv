@@ -103,43 +103,49 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Перевірка на мобільні пристрої
+    const isMobile = window.matchMedia("(max-width: 1250px)").matches;
+
+    if (!isMobile) {
     // Сховати/показати хедер при скролінгу
     const header = document.querySelector('header');
     let lastScrollTop = 0;
 
     window.addEventListener('scroll', () => {
-        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
 
         if (scrollTop > lastScrollTop) {
-            // Прокрутка вниз
-            header.classList.add('hidden');
+        // Прокрутка вниз
+        header.classList.add('hidden');
         } else {
-            // Прокрутка вверх
-            header.classList.remove('hidden');
+        // Прокрутка вверх
+        header.classList.remove('hidden');
         }
 
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
-    });
+        lastScrollTop = Math.max(scrollTop, 0); // Запобігання негативному скролу
+    }, { passive: true });
 
     // Кнопка "Повернутися на верх"
     const scrollToTopButton = document.querySelector('#scroll-to-top');
 
     if (scrollToTopButton) {
-        scrollToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
         window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 100) {
-                scrollToTopButton.classList.add('visible');
-                scrollToTopButton.classList.remove('hidden');
-            } else {
-                scrollToTopButton.classList.add('hidden');
-                scrollToTopButton.classList.remove('visible');
-            }
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+        if (scrollTop > 100) {
+            scrollToTopButton.classList.add('visible');
+        } else {
+            scrollToTopButton.classList.remove('visible');
+        }
+        }, { passive: true });
+
+        scrollToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
         });
     }
+    }
+
 });
