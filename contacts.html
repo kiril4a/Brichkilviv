@@ -10,7 +10,9 @@
     <body>
         <header>
             <div class="header__logo">
-                <img src="images/logo.jpg" alt="Логотип">
+                <a href="index.html"> <!-- Додайте посилання на головну сторінку -->
+                    <img src="images/logo.jpg" alt="Логотип">
+                </a>
             </div>
             <nav class="header__nav">
                 <ul>
@@ -36,7 +38,7 @@
 
         <main>
             <section class="about-us">
-                <div class="left-column">
+                <div class="left-column" style="max-width: 25%;">
                     <h2>Контакти</h2>
                     <hr class="section-divider">
                     <a href="tel:+380 (98) 624 51 72" class="contact-item">+380 (98) 624 51 72</a>
@@ -50,7 +52,7 @@
                     <div class="form-container">
                         <h2>Залишились запитання?</h2>
                         <hr class="section-divider">
-                        <form id="quickContactForm">
+                        <form id="quickContactForm", style="max-width: 100%;">
                             <label for="quick-name">Ім'я:</label>
                             <input type="text" id="quick-name" name="name" required>
                             

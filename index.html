@@ -14,7 +14,9 @@
 <body>
     <header>
         <div class="header__logo">
-            <img src="images/logo.jpg" alt="Логотип">
+            <a href="index.html"> <!-- Додайте посилання на головну сторінку -->
+                <img src="images/logo.jpg" alt="Логотип">
+            </a>
         </div>
         <nav class="header__nav">
             <ul>
@@ -48,9 +50,9 @@
                 <a href="#contactForm" class="scroll-link">Оцінка автомобіля</a>
             </div>
             <div class="right-column">
-                <h2>Безкоштовна консультація</h2>
-                <p>Заповніть дані і ми зателефонуємо Вам найближчим часом</p>
-                <form id="quickContactForm">
+                <form id="quickContactForm" style="margin: auto; max-width: 100%;">
+                    <h2>Безкоштовна консультація</h2>
+                    <p>Заповніть дані і ми зателефонуємо Вам найближчим часом</p>
                     <label for="quick-name">Ім'я:</label>
                     <input type="text" id="quick-name" name="name" required>
                     
@@ -123,8 +125,8 @@
     
 
     <section id="contact">
-        <h2>Опишіть Ваше авто і ми зателефонуємо Вам впродовж 10 хвилин</h2>
         <form id="contactForm">
+            <h2>Опишіть Ваше авто і ми зателефонуємо Вам впродовж 10 хвилин</h2>
             <label for="car-brand">Марка автомобіля:</label>
             <select id="car-brand" name="car-brand" required>
                 <option value="">Виберіть марку</option>
@@ -235,21 +237,21 @@
             </select>
         
             <label for="car-model">Модель:</label>
-            <input type="text" id="car-model" name="car-model" required style="width: 99%;">
+            <input type="text" id="car-model" name="car-model" required>
         
             <label for="car-year">Рік:</label>
-            <input type="number" id="car-year" name="car-year" required style="width: 99%;">
+            <input type="number" id="car-year" name="car-year" required>
         
             <label for="name">Ім'я:</label>
-            <input type="text" id="name" name="name" required style="width: 99%;">
+            <input type="text" id="name" name="name" required>
         
             <label for="phone">Номер телефону:</label>
-            <input type="tel" id="phone" name="phone" required style="width: 99%;">
+            <input type="tel" id="phone" name="phone" required>
         
             <button type="submit">Відправити</button>
         </form>
         <!-- Дополнительный отступ -->
-        <div class="contact-form-spacer"></div>
+        
     </section>
 
     

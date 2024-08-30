@@ -1,10 +1,20 @@
-body {
+html, body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #717476;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.container, .content-main, .about-us, .contact, .map-container {
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
+* {
+    box-sizing: border-box;
+}
 header {
     display: flex;
     justify-content: space-between;
@@ -27,16 +37,16 @@ header.hidden {
 }
 
 .header__logo {
-    padding-left: 80px;
-    height: 90px;
-    border-radius: 10px;
+    padding-left: 5vw;
+    height: 6rem;
+    border-radius: 0.7rem;
     overflow: hidden;
 }
 
 .header__logo img {
     height: 100%;
     width: auto;
-    border-radius: 10px;
+    border-radius: 0.7rem;
 }
 
 
@@ -52,26 +62,26 @@ header.hidden {
 }
 
 .header__nav li {
-    margin-left: 40px;
+    margin-left: 2vw;
     position: relative;
 }
 
 .header__nav > ul > li > a {
     color: #fff;
     text-decoration: none;
-    font-size: 22px;
+    font-size: 1.375rem;
     position: relative;
     display: inline-block;
-    padding: 5px 0;
+    padding: 0.3125rem 0;
 }
 
 .header__nav > ul > li > a::after {
     content: '';
     position: absolute;
     width: 0;
-    height: 2px;
+    height: 0.125rem;
     display: block;
-    margin-top: 5px;
+    margin-top: 0.3125rem;
     right: 0;
     background: #fff;
     transition: width 0.4s ease;
@@ -81,7 +91,7 @@ header.hidden {
 .header__nav > ul > li > a:hover::after {
     width: 100%;
     left: 0;
-    border-radius: 2px;
+    border-radius: 0.125rem;
     background-color: #fff; /* Колір смужки */
 }
 
@@ -134,6 +144,7 @@ header.hidden {
 
 main {
     padding: 20px;
+    flex: 1;
     margin-top: 80px; /* Відступ для уникнення перекриття з фіксованим хедером */
 }
 
@@ -149,6 +160,7 @@ section {
 
 .content-main {
     display: flex;
+    padding-top: 20px;
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
@@ -171,7 +183,9 @@ section {
 .content-main .right-column {
     width: 33%;
     padding-left: 20px;
+    box-sizing: border-box; /* Включає padding у ширину колонки */
 }
+
 
 @media (max-width: 768px) {
     .content-main {
@@ -202,114 +216,145 @@ section {
     padding: 10px 20px;
     border-radius: 4px;
     text-decoration: none;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+    will-change: transform, background-color;
 }
 
 .left-column a.scroll-link:hover {
-    background-color: #222922;
+    background-color: #333d33;
+    transform: scale(1.05);
 }
 
 /* Стилі для форми */
 form {
-    max-width: 100%;
-    text-align: left;
-    background: #fff;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    margin-bottom: 80px; /* Додатковий відступ знизу */
+    max-width: 50%;
+    text-align: center; /* Центрування тексту у формі */
+    background: #ffffff;
+    padding: 20px 30px;
+    /*box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);*/
+    border-radius: 12px;
+    margin: 20px auto;
+    transition: box-shadow 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column; /* Вертикальне розташування елементів */
+    align-items: center; /* Центрування елементів по горизонталі */
 }
 
 form label {
     display: block;
-    margin: 10px 0 5px;
+    margin: 12px 0 8px;
+    font-weight: 600;
+    color: #333;
+    text-align: left; /* Текст метки вирівняний по лівому краю */
+    width: 100%; /* Збереження ширини метки */
 }
 
 form input, form select {
-    width: 95%; /* Зменшено ширину до 95% */
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    text-align: left;
+    align-self: flex-start;
+    width: 100%; /* Задаємо однакову ширину */
+    padding: 12px;
+    margin-bottom: 16px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
     font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    box-sizing: border-box; /* Враховує padding і border в загальну ширину */
 }
 
-form input[type="file"] {
-    padding: 0;
+
+form input:focus, form select:focus {
+    border-color: #555;
+    box-shadow: 0 0 5px rgba(85, 85, 85, 0.3);
+    outline: none;
 }
 
 form button {
-    background-color: #222922;
+    background-color: #333;
     color: #fff;
-    padding: 10px 20px;
+    padding: 12px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+    will-change: transform, background-color;
 }
 
 form button:hover {
-    background-color: #222922;
+    background-color: #555;
+    transform: scale(1.05);
+}
+
+form button:active {
+    transform: scale(0.98);
 }
 
 .contact-form-spacer {
-    height: 80px; /* Розмір відступу, що повинен бути достатнім, щоб футер не перекривав форму */
+    height: 95px; /* Розмір відступу, що повинен бути достатнім, щоб футер не перекривав форму */
 }
 
 footer {
-    /*background-image: url('../images/header-background.jpeg'); /* Замініть на шлях до вашого зображення */
-    /*background-size: cover; /* Адаптує зображення до розмірів контейнера */
-    /*background-position: center; /* Центрує зображення */
     background-color: #222922;
+    color: #fff;
     text-align: center;
     padding: 10px 20px;
-    position: fixed;
     width: 100%;
-    bottom: 0;
 }
 
 /* Стили для секції "Про нас" */
+.container {
+    background-color: #ffffff; /* Білий фон для обгорткового контейнера */
+    padding: 20px; /* Відступи всередині контейнера */
+    margin-right: 5%;
+    border-radius: 12px; /* Округлення кутів */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Тінь для контейнера */
+    max-width: 35%;
+    justify-content: center;
+}
+
 .about-us {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 100px;
-    padding-left: 250px;
-    padding-right: 250px;
+    max-width: 80%;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center; /* Центрування вмісту по горизонталі */
+    align-items: center; /* Вирівнювання по вертикалі */
+    padding: 100px 20px; /* Відступи з усіх боків */
+    gap: 20px; /* Відстань між колонками */
+    flex-wrap: wrap; /* Дозволяє переносити елементи на новий рядок при потребі */
 }
 
 .about-us__text {
-    width: 50%;
+    flex: 1; /* Розтягування текстового блоку */
     padding-right: 20px;
-    text-align: left !important;
-}
-
-.about-us__image img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.evaluation {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 100px;
-}
-
-.evaluation__text {
-    width: 60%; /* Текст займає 50% ширини контейнера */
-    padding-right: 20px;
+    color: #3D4633; /* Основний колір тексту */
     text-align: left;
 }
 
-.evaluation__image {
-    width: 40%; /* Зображення займає 50% ширини контейнера */
+.about-us__text h1 {
+    font-size: 2.5rem; /* Розмір шрифту для h1 (приблизно 36px) */
+    margin-bottom: 20px;
+    color: #2D3E2E; /* Колір тексту для h1 */
 }
 
-.evaluation__image img {
-    width: 80%; /* Зображення займає всю ширину контейнера */
-    height: auto;
+.about-us__text p {
+    font-size: 1.125rem; /* Розмір шрифту для p (приблизно 18px) */
+    line-height: 1.6;
+    color: #4F5D4D; /* Колір тексту для p */
+}
+
+.about-us__image {
+    flex: 1; /* Розтягування зображення */
+    max-width: 100%;
+    display: flex;
+    justify-content: center; /* Центрування зображення */
+}
+
+.about-us__image img {
+    max-width: 100%; /* Максимальна ширина зображення */
+    height: auto; /* Автоматичне збереження пропорцій */
     border-radius: 8px;
 }
 
@@ -389,44 +434,10 @@ footer {
     margin-top: 20px;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    background: #fff;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 8px;
-}
 
-form label {
-    margin-bottom: 5px;
-}
-
-form input {
-    padding: 10px;
-    margin-right: 200px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 95%;
-}
-
-form button {
-    padding: 10px;
-    background-color: #222922;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-form button:hover {
-    background-color: #222922;
-}
 
 .map-container {
-    height: 400px;
+    height: 650px;
     padding-left: 20px;
     border-radius: 8px;
     overflow: hidden; /* Забезпечує правильне заокруглення iframe */
@@ -439,16 +450,6 @@ form button:hover {
     border-radius: 8px; /* Заокруглені краї */
 }
 
-/* Стили для футера */
-footer {
-    background-color: #222922;
-    color: #fff;
-    text-align: center;
-    padding: 10px 20px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
 
 /* Стили для кнопки перенаправлення на форму */
 .go-to-form-button {
@@ -459,13 +460,14 @@ footer {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
     display: inline-block;
     text-decoration: none;
 }
 
 .go-to-form-button:hover {
-    background-color: #222922;
+    background-color: #353f35;
+    transform: scale(1.05);
 }
 
 .section-divider {
@@ -576,51 +578,6 @@ footer {
     width: 80px;
     height: 80px;
     margin-bottom: 20px;
-}
-
-h2 {
-    font-size: 1.5em;
-    margin: 0 0 10px;
-}
-
-p {
-    font-size: 1em;
-    color: #555;
-}
-
-@media (max-width: 768px) {
-    .content {
-        flex-direction: column;
-    }
-
-    .left-column, .right-column {
-        width: 100%;
-    }
-
-    #priorities {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .priority-container {
-        flex-direction: column;
-    }
-
-    .priority-column {
-        margin: 10px 0;
-    }
-
-    .priority-column:not(:last-child)::after {
-        display: none; /* Сховати вертикальні лінії на мобільних пристроях */
-    }
-
-    .separator {
-        display: none;
-    }
-
-    .box-advantages {
-        width: 100%;
-    }
 }
 
 .header__contacts {
