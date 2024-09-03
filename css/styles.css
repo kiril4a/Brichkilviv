@@ -682,11 +682,13 @@ footer {
         height: 20px;
         cursor: pointer;
         position: absolute;
-        top: 10px; /* Відступ зверху */
-        right: 20px; /* Відступ від правого краю */
+        top: 40px; /* Відступ зверху */
+        right: 40px; /* Відступ від правого краю */
         z-index: 1001; /* Щоб кнопка була поверх інших елементів */
     }
-
+    .fixed {
+        position: fixed;
+    }
     .menu-toggle-bar {
         background-color: #fff; /* Колір полосок */
         width: 30px;
@@ -697,7 +699,7 @@ footer {
 
     /* Переключення меню при натисканні */
     .menu-toggle.active .menu-toggle-bar:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
+        transform: rotate(45deg) translate(4.5px, 4.5px);
     }
 
     .menu-toggle.active .menu-toggle-bar:nth-child(2) {
@@ -705,7 +707,7 @@ footer {
     }
 
     .menu-toggle.active .menu-toggle-bar:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
+        transform: rotate(-45deg) translate(4.5px, -4.5px);
     }
 
     /* Стилі для навігаційного меню */
@@ -729,7 +731,7 @@ footer {
         display: flex; /* Використовуємо flexbox для розташування елементів */
         flex-direction: column; /* Розташування елементів вертикально */
         align-items: center; /* Вирівнювання по центру */
-        padding-top: 60px; /* Відступ зверху, щоб не перекривати контент */
+        padding-top: 70px; /* Відступ зверху, щоб не перекривати контент */
         border-top-left-radius: 10px; /* Заокруглені верхні ліві кути */
         border-bottom-left-radius: 10px; /* Заокруглені нижні ліві кути */
     }
@@ -858,6 +860,9 @@ footer {
         width:95%;
         text-align: center;
     }
+    .about-us{
+        width: 100%!important;
+    }
     .about-us__image img {
         display: none;
     }
@@ -867,6 +872,7 @@ footer {
     .about-us .left-column{
         width: 100%;
     }
+
 
     .about {
         background-image: url('\images\about-us.jpg');

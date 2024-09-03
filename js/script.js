@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         navMobile.classList.toggle('show');
         // Перемикаємо клас active для кнопки меню
         menuToggle.classList.toggle('active');
+        menuToggle.classList.toggle('fixed');
     });
     
     
