@@ -644,6 +644,103 @@ footer {
 .about-us .left-column{
     width: 25%;
 }
+.car-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center; /* Центрує елементи по горизонталі */
+    margin: 20px auto; /* Відступи та центрування списку */
+}
+
+.car-item {
+    border: 1px solid #ccc;
+    padding: 15px;
+    width: 45%; /* Ширина для ПК: 2 автомобілі поруч */
+    max-width: 400px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease; /* Додає плавний ефект при зміні розміру */
+    background-color: #ffffff; /* Фон для кожного елементу */
+}
+
+.car-item:hover {
+    transform: scale(1.05); /* Збільшує елемент при наведенні */
+}
+
+.car-item img {
+    max-width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease; /* Додає плавний ефект збільшення зображення */
+}
+
+.car-item img:hover {
+    transform: scale(1.1); /* Збільшує зображення при наведенні */
+}
+
+.car-details {
+    text-align: left;
+    padding: 10px;
+}
+
+.car-details h2 {
+    font-size: 1.2em;
+    margin: 0 0 10px;
+}
+
+.car-details p {
+    margin: 5px 0;
+}
+
+/* Стилі для мобільних пристроїв */
+@media (max-width: 768px) {
+    .car-item {
+        width: 90%; /* На мобільних пристроях: один автомобіль на всю ширину */
+    }
+}
+
+/* Загальні стилі таблиці */
+table {
+    width: 80%; /* Встановлює ширину таблиці на 80% від ширини сторінки */
+    border-collapse: collapse;
+    margin: 20px auto; /* Відступи зверху та знизу, центрує таблицю по горизонталі */
+    background-color: #f9f9f9; /* Колір фону для таблиці */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Додає тінь для краще вигляду */
+}
+
+/* Стилі для заголовків та клітинок таблиці */
+table, th, td {
+    border: 1px solid #ddd; /* Колір та стиль рамки таблиці */
+}
+
+th, td {
+    padding: 12px; /* Внутрішній відступ для клітинок */
+    text-align: left; /* Вирівнювання тексту в клітинках */
+}
+
+/* Стилі для заголовків таблиці */
+th {
+    background-color: #f2f2f2; /* Колір фону заголовків */
+}
+
+/* Стилі для зображень в таблиці */
+img {
+    max-width: 100px; /* Максимальна ширина зображень */
+    height: auto; /* Автоматичне масштабування висоти відповідно до ширини */
+}
+
+/* Стилі для рядків таблиці при наведенні */
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Колір фону для парних рядків */
+}
+
+tr:hover {
+    background-color: #eaeaea; /* Колір фону при наведенні курсора на рядок */
+}
 /* Стили для мобільних версій */
 @media (max-width: 1250px) {
     html, body {
@@ -861,7 +958,7 @@ footer {
         text-align: center;
     }
     .about-us{
-        width: 100%!important;
+        max-width: 100%!important;
     }
     .about-us__image img {
         display: none;
@@ -881,3 +978,5 @@ footer {
         background-position: center;
     }
 }
+
+
