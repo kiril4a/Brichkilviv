@@ -6,10 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brichkilviv</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/cars-details.css">
+    <style>
+    /* Приховування вмісту до завантаження стилів */
+    body {
+        visibility: hidden;
+    }
+    </style>
+    <script>
+        window.addEventListener('load', function() {
+            document.body.style.visibility = 'visible';
+        });
+    </script>
     <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
     </script>
     <script src="js/script.js" defer></script>
+    <script src="js/loadcars.js" defer></script>
 </head>
 <body>
     <header>
@@ -30,6 +43,7 @@
             <a href="helpbuy.html">Допомога в покупці авто</a>
             <a href="exchange.html">Обмін авто</a>
             <a href="evaluation.html">Оцінка авто</a>
+            <a href="availability.html">В наявності</a>
             <a href="contacts.html">Контакти</a>
         </div>
         <nav class="header__nav">
@@ -43,6 +57,7 @@
                         <a href="helpbuy.html">Допомога в покупці авто</a>
                         <a href="exchange.html">Обмін авто</a>
                         <a href="evaluation.html">Оцінка авто</a>
+                        <a href="availability.html">В наявності</a>
                     </div>
                 </li>
                 <li><a href="contacts.html">Контакти</a></li>
@@ -68,7 +83,5 @@
     <footer>
         <p>&copy; 2024 Brichkilviv. Всі права захищені.</p>
     </footer>
-
-    <script src="js/script.js"></script>
 </body>
 </html>

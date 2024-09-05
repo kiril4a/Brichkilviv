@@ -1,0 +1,84 @@
+.car-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin: 20px auto;
+}
+.car-block {
+    position: fixed; 
+    border: 1px solid #ccc;
+    padding: 15px;
+    width: 45%;
+    max-width: 400px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    text-align: center;
+    background-color: #ffffff;
+}
+.car-block img {
+    max-width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.car-block img.expanded {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    max-height: 100%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+.car-block h2 {
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    padding: 10px;
+    font-size: 1.2em;
+    margin: 0 0 10px;
+}
+.car-block p {
+    position: relative; 
+    overflow: hidden;
+    text-align: left;
+    padding: 10px;
+    margin: 5px 0;
+}
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+table, th, td {
+    border: 1px solid #ddd;
+}
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+table th {
+    background-color: #f2f2f2;
+}
+table img {
+    max-width: 100px;
+    height: auto;
+}
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+table tr:hover {
+    background-color: #eaeaea;
+}
+@media (max-width: 1250px) {
+    .car-list .car-block {
+        width: 90%!important;
+    }
+}

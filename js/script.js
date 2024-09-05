@@ -14,8 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         menuToggle.classList.toggle('active');
         menuToggle.classList.toggle('fixed');
     });
-    
-    
+
     // Перевіряємо, чи є фрагмент у URL
     const fragment = window.location.hash;
     
@@ -148,59 +147,37 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     }
-    loadCars();
-});
-
-// Функція для завантаження автомобілів
-async function loadCars() {
-    try {
-        // Виконання запиту до API
-        const response = await fetch('http://brichkilviv.zzz.com.ua/api/cars.php'); // Змініть URL на ваш реальний
-        if (!response.ok) {
-            throw new Error('Не вдалося завантажити автомобілі');
-        }
-
-        // Отримання даних у форматі JSON
-        const cars = await response.json();
-
-        // Перевірка, чи є дані
-        if (cars.length === 0) {
-            console.log('Немає автомобілів у базі даних');
-            return;
-        }
-
-        // Знаходимо контейнер для списку автомобілів
-        const carList = document.getElementById('car-list');
-
-        // Очищуємо контейнер перед додаванням нових елементів
-        carList.innerHTML = '';
-
-        // Додаємо кожен автомобіль до контейнера
-        cars.forEach(car => {
-            const carBlock = document.createElement('div');
-            carBlock.className = 'car-block';
-            
-            // Створюємо зображення автомобіля
-            const carImage = new Image();
-            carImage.src = car.image;
-            carImage.onerror = () => {
-                carImage.src = 'images/logo.jpg'; // Використовуємо logo.png якщо зображення не завантажується
-            };
-
-            // Додаємо HTML-код для блоку автомобіля
-            carBlock.innerHTML = `
-                <div class="container">
-                <img src="cars-photos/${car.image}" alt="${car.make} ${car.model}">
-                <h2>${car.make} ${car.model}</h2>
-                <p>Рік: ${car.year}</p>
-                <p>Пробіг: ${car.mileage} км</p>
-                <p>Стан: ${car.condition}</p>
-                <p>Ціна: ${car.price} грн</p>
-                </div>
-            `;
-            carList.appendChild(carBlock);
+    function addImageClickHandlers() {
+        const images = document.querySelectorAll('.car-block img');
+        images.forEach(image => {
+            if (!image.classList.contains('click-bound')) {
+                image.classList.add('click-bound');
+                image.addEventListener('click', () => {
+                    if (image.classList.contains('expanded')) {
+                        image.classList.remove('expanded');
+                    } else {
+                        image.classList.add('expanded');
+                    }
+                });
+            }
         });
-    } catch (error) {
-        console.error('Помилка при завантаженні автомобілів:', error);
     }
-}
+    
+    
+
+    const observer = new MutationObserver((mutationsList) => {
+        for (let mutation of mutationsList) {
+            if (mutation.type === 'childList') {
+                console.log('Відбулися зміни в DOM');
+                addImageClickHandlers();
+            }
+        }
+    });
+
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+
+    addImageClickHandlers();
+});
